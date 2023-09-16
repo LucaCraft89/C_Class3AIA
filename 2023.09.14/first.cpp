@@ -6,7 +6,14 @@
 using namespace std;
 
 int main() {
+    int a;
     cout << "Hello World\n";
+    cout << "Insert a\n -:";
+    cin >> a;
+    _sleep(2000
 
+
+    );
+    cout << a<<" is the value of a";
     return 0;
 }
