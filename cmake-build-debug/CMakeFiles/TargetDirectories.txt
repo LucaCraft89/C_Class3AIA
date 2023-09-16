@@ -1,0 +1,2 @@
+C:/Users/lucac/CLionProjects/C_Class3AIA/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/lucac/CLionProjects/C_Class3AIA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
