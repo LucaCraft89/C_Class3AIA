@@ -64,6 +64,7 @@ int main() {
             cpp();
         case 2:
             cat();
+        default:
     }
     return 0;
 }
