@@ -16,6 +16,5 @@ int main() {
     lenght=cata+catb+ipot;
     area=(cata*catb)/2;
     cout << "Second Side: " << catb << "\nPerimeter: " << lenght << "\nSurface: " << area << "\n";
-
     return 0;
 }
