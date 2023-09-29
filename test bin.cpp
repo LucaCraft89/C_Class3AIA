@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    int a, i=20, j, jj, temp;
+    int a=0, i=20, j=0, jj=0, temp=0;
     int bin[20];
     cin >> a;
     for (int i = 0; i < 20; ++i) {
@@ -28,5 +28,6 @@ int main() {
     for (int f = 0; f < 20; ++f) {
         cout << bin[f];
     }
+    cout << "\n";
     return 0;
 }
