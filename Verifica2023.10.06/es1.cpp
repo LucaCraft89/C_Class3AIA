@@ -34,6 +34,11 @@ int main() {
         cout << "l'equazione risulta indeterminata!!\n";
     }
 
+    //Controllo se i coefficienti di x^2 e x esistono altrimenti avverto l'utente
+    else if (a==0 and b==0) {
+        cout << "L'equazione non ha senso perchè i coefficienti sono nulli e "<< c << " non è uguale a 0||\n";
+    }
+
     //Controllo se il coefficiente di x^2 è negativo e di conseguenza inverto i segni dell'equazione
     else if (a<0){
         //avviso l'utente
