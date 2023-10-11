@@ -11,9 +11,7 @@ int main() {
     cout << "N:\n -:"; cin >> n;
     cout << "a:\n -:"; cin >> a;
     char b=a;
-    for (int i = 0; i < n+1; ++i) {
-        a = i + b;
-    }
+    a = 'a' + ((a-'a' + n) % 26);
     cout << a  << endl;
     cout << endl;
 
