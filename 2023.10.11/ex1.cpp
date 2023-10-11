@@ -64,8 +64,10 @@ Selezionare cosa si vuole fare:
         case 6:
             a=' '; b=' ';
             cout << "Inserire la prima stringha\n -:";
+            fflush(stdin);
             getline(cin, a);
             cout << "Inserire la seconda stringha\n -:";
+            fflush(stdin);
             getline(cin, b);
             menu(a, b);
             break;
@@ -114,8 +116,10 @@ int main() {
     string a, b;
     cout << "buonasera pancla\n";
     cout << "Inserire la prima stringha\n -:";
+    fflush(stdin);
     getline(cin, a);
     cout << "Inserire la seconda stringha\n -:";
+    fflush(stdin);
     getline(cin, b);
     if (menu(a,b) ==1 ){
         main();
