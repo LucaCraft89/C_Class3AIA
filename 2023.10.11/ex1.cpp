@@ -66,6 +66,7 @@ Selezionare cosa si vuole fare:
             cout << "Inserire la prima stringha\n -:";
             fflush(stdin);
             getline(cin, a);
+            if (0);
             cout << "Inserire la seconda stringha\n -:";
             fflush(stdin);
             getline(cin, b);
