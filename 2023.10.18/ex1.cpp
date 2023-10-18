@@ -39,7 +39,7 @@ int main() {
                 int c;
                 bool isPrime;
                 cout << "e metticelo sto numero\n -:"; cin >> c;
-                for (int i = 2; i < c; ++i) {
+                for (int i = 2; i < c/2; ++i) {
                     if (c%i){
                         isPrime = true;
                     }
