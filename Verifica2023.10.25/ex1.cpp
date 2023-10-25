@@ -54,7 +54,10 @@ int main() {
                 } while (k<30);
                 break;
             case 3:
-
+                cout << endl;
+                while (true) {
+                    cout << "(\\(\\\n( -.-)\no_(" << '"' << ")(" << '"' << ")\n\n";
+                };
                 break;
             case 4:
 
