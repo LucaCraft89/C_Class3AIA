@@ -76,17 +76,26 @@ char binToOct(char bin1, char bin2, char bin3) {
 int main() {
     string bin;
     char temp, hex1, hex2, oct1, oct2, oct3;
-    int inter=0, repeat;
-    cout << "immettere bin (non più di 8 bit)\n -:";
-    fflush(stdin);
-    getline(cin, bin);
-    if (bin.length()>8){
-        cout << "Ho detto sono 8 bit!!!!!!!!!\n";
+    int inter=0, a, repeat;
+    cout << "immettere dec (non più di 255)\n -:";
+    cin >> a;
+    if (a>255){
+        cout << "Ho detto max 255!!!!!!!!!\n";
         main();
     }
-    else if (bin.length()<8) {
-        cout << "aggiungere 0 per formare 8 bit grazie\n";
+    else if (a<0) {
+        cout << "solo positivi\n";
         main();
+    }
+    for (int i = 0; i < 8; i++) {
+        if (a%2){
+            bin[i]='1';
+            a=a/2;
+        }
+        else {
+            bin[i]='0';
+            a=a/2;
+        }
     }
     hex1 = binToHex(bin[0], bin[1], bin[2], bin[3]);
     hex2 = binToHex(bin[4], bin[5], bin[6], bin[7]);
@@ -109,7 +118,11 @@ int main() {
     if (bin[7]=='1'){
         inter = inter + pow(2, 7);
     }
-    cout << "DEC: " << inter << endl;
+    cout << "BIN: ";
+    for (int f = 0; f < 8; f++) {
+        cout << bin[f];
+    }
+    cout << endl;
     cout << "Convertire un'altro? (1 si. 0 no)\n -:";
     cin >> repeat;
     if (repeat){
