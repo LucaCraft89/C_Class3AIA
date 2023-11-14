@@ -58,6 +58,36 @@ char binToHex(char bin1, char bin2, char bin3, char bin4) {
     else if (hexOne.compare(hexF)==0) {return 'F';}
 }
 
+string hexToBin(char Hex1) {
+    if (Hex1=='0'){return hex0;}
+    else if (Hex1=='1') {return hex1;}
+    else if (Hex1=='2') {return hex2;}
+    else if (Hex1=='3') {return hex3;}
+    else if (Hex1=='4') {return hex4;}
+    else if (Hex1=='5') {return hex5;}
+    else if (Hex1=='6') {return hex6;}
+    else if (Hex1=='7') {return hex7;}
+    else if (Hex1=='8') {return hex8;}
+    else if (Hex1=='9') {return hex9;}
+    else if (Hex1=='A') {return hexA;}
+    else if (Hex1=='B') {return hexB;}
+    else if (Hex1=='C') {return hexC;}
+    else if (Hex1=='D') {return hexD;}
+    else if (Hex1=='E') {return hexE;}
+    else if (Hex1=='F') {return hexF;}
+}
+
+string octToBin(char Oct1) {
+    if (Oct1=='0'){return oct0;}
+    else if (Oct1=='1') {return oct1;}
+    else if (Oct1=='2') {return oct2;}
+    else if (Oct1=='3') {return oct3;}
+    else if (Oct1=='4') {return oct4;}
+    else if (Oct1=='5') {return oct5;}
+    else if (Oct1=='6') {return oct6;}
+    else if (Oct1=='7') {return oct7;}
+}
+
 char binToOct(char bin1, char bin2, char bin3) {
     string octOne;
     octOne=octOne.append(1, bin1);
@@ -74,19 +104,66 @@ char binToOct(char bin1, char bin2, char bin3) {
 }
 
 int main() {
-    string bin;
+    string bin, binar;
     char temp, hex1, hex2, oct1, oct2, oct3;
-    int inter=0, repeat;
-    cout << "immettere bin (non più di 8 bit)\n -:";
-    fflush(stdin);
-    getline(cin, bin);
-    if (bin.length()>8){
-        cout << "Ho detto sono 8 bit!!!!!!!!!\n";
-        main();
+    int inter=0, repeat, sel;
+    cout << "Da quale vuoi convertire (1=bin, 2=hex, 3=oct)\n -:";
+    cin >> sel;
+    switch (sel) {
+        case 1:
+            cout << "immettere bin (non più di 8 bit)\n -:";
+            fflush(stdin);
+            getline(cin, bin);
+            if (bin.length()>8){
+                cout << "Ho detto sono 8 bit!!!!!!!!!\n";
+                main();
+            }
+            else if (bin.length()<8) {
+                cout << "aggiungere 0 per formare 8 bit grazie\n";
+                main();
+            }
+            break;
+        case 2:
+            cout << "immettere hex (non più di 2 cifre)\n -:";
+            fflush(stdin);
+            getline(cin, bin);
+            if (bin.length()>2){
+                cout << "Ho detto sono 8 bit!!!!!!!!!\n";
+                main();
+            }
+            else if (bin.length()<2) {
+                cout << "aggiungere 0 per formare 8 bit grazie\n";
+                main();
+            }
+            break;
+        case 3:
+            cout << "immettere oct (non più di 3 cifre con max 377)\n -:";
+            fflush(stdin);
+            getline(cin, bin);
+            if (bin.length()>3){
+                cout << "Ho detto sono 8 bit!!!!!!!!!\n";
+                main();
+            }
+            else if (bin.length()<3) {
+                cout << "aggiungere 0 per formare 8 bit grazie\n";
+                main();
+            }
+            break;
+        default:
+            cout << "Input sbagliato\n";
+            main();
     }
-    else if (bin.length()<8) {
-        cout << "aggiungere 0 per formare 8 bit grazie\n";
-        main();
+
+    if (sel==2){
+        binar=binar+hexToBin(bin[0]);
+        binar=binar+hexToBin(bin[1]);
+        bin=binar;
+    } else if (sel==3) {
+        binar=binar+octToBin(bin[0]);
+        binar.erase(0, 1);
+        binar=binar+octToBin(bin[1]);
+        binar=binar+octToBin(bin[2]);
+        bin=binar;
     }
     hex1 = binToHex(bin[0], bin[1], bin[2], bin[3]);
     hex2 = binToHex(bin[4], bin[5], bin[6], bin[7]);
@@ -95,6 +172,7 @@ int main() {
     oct2 = binToOct(bin[2], bin[3], bin[4]);
     oct3 = binToOct(bin[5], bin[6], bin[7]);
     cout << "OCT: " << oct1 << oct2 << oct3 << endl;
+    cout << "BIN: " << bin << endl;
     for ( int jj = 0, j = 8 - 1; jj < 8/2; jj++, j--)
     {
         temp = bin[jj];
@@ -110,6 +188,7 @@ int main() {
         inter = inter + pow(2, 7);
     }
     cout << "DEC: " << inter << endl;
+
     cout << "Convertire un'altro? (1 si. 0 no)\n -:";
     cin >> repeat;
     if (repeat){
