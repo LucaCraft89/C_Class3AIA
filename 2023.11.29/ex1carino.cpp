@@ -8,6 +8,8 @@
 
 using namespace std;
 
+const string path = "C:\\Users\\lucac\\CLionProjects\\C_Class3AIA\\2023.11.29\\words.txt";
+
 void hang0(){
     cout << R"(
   +---+
@@ -146,7 +148,7 @@ int main() {
     string word, line, lines[200];
     char guess;
     int state = 0, letters[200], f = 0, n = 0, out = 0, k=0;
-    ifstream myFile( "C:\\Users\\lucac\\CLionProjects\\C_Class3AIA\\2023.11.29\\words.txt");
+    ifstream myFile( path);
     if (myFile.is_open())
     {
         while (getline(myFile,line)){
