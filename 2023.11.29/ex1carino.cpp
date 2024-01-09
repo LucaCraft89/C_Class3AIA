@@ -148,7 +148,7 @@ int main() {
     string word, line, lines[200];
     char guess;
     int state = 0, letters[200], f = 0, n = 0, out = 0, k=0;
-    ifstream myFile( path);
+    ifstream myFile(path);
     if (myFile.is_open())
     {
         while (getline(myFile,line)){

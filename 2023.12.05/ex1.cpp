@@ -30,6 +30,9 @@ void floatBubbleSort(float arr[], int n, string arr2[], int arr3[])
 
 void outAllArr(string arr[], int arr2[], float arr3[], int n){
     for (int i = 0; i < n; i++) {
+        if (arr3[i]==0){
+            continue;
+        }
         cout << i+1 << ".\t" << arr[i] << "\t " << arr2[i] << "\t" << arr3[i] << endl;
     }
 }
