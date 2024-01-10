@@ -1,0 +1,21 @@
+{
+	{
+		"C++ File Template": {
+		  "prefix": "cpp",
+		  "body": [
+			"//",
+			"// Created by lucac on ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}.",
+			"//",
+			"#include <iostream>",
+			"\nusing namespace std;\n",
+			"int main() {",
+			"    $0",
+			"    return 0;",
+			"}"
+		  ],
+		  "description": "C++ File Template",
+		  isFileTemplate: true
+		}
+	  }
+	  
+}
