@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 int main() {
     std::vector<int> schedina{1, 2, 3, 4, 5}; // Inserisci qui i numeri della tua schedina
