@@ -113,11 +113,73 @@ void editPokemon(int n, pokemon p[]) {
     deletePokemon(n, p);
 }
 
+void sortpokemonby(pokemon p[], int by) {
+    pokemon temp;
+    if (by == 1) {
+        for (int i = 0; i < MAXp; i++) {
+            for (int j = 0; j < MAXp; j++) {
+                if (p[i].name != "")
+                {
+                    if (p[i].name < p[j].name) {
+                    temp = p[i];
+                    p[i] = p[j];
+                    p[j] = temp;
+                    }
+                }     
+            }
+        }
+    } else if (by == 2) {
+        for (int i = 0; i < MAXp; i++) {
+            for (int j = 0; j < MAXp; j++) {
+                if (p[i].type < p[j].type) {
+                    temp = p[i];
+                    p[i] = p[j];
+                    p[j] = temp;
+                }
+            }
+        }
+    } else if (by == 3) {
+        for (int i = 0; i < MAXp; i++) {
+            for (int j = 0; j < MAXp; j++) {
+                if (p[i].level < p[j].level) {
+                    temp = p[i];
+                    p[i] = p[j];
+                    p[j] = temp;
+                }
+            }
+        }
+    } else if (by == 4) {
+        for (int i = 0; i < MAXp; i++) {
+            for (int j = 0; j < MAXp; j++) {
+                if (p[i].hp < p[j].hp) {
+                    temp = p[i];
+                    p[i] = p[j];
+                    p[j] = temp;
+                }
+            }
+        }
+    } else {
+        cout << "Invalid choice" << endl;
+        return;
+    }
+    cout << "Sorted " << countPokemon(p) << " pokemon" << endl;
+}
+
+void searchpokemon(pokemon p[], string name) {
+    for (int i = 0; i < MAXp; i++) {
+        if (p[i].name == name) {
+            cout << endl << "Found Pokemon " << name << endl;
+            cout << "[| N | Name\t| Type\t| Level\t| HP |]" << endl;
+            cout << " | " << i+1 << " | " << p[i].name << "\t| " << p[i].type << "\t| " << p[i].level << "\t| " << p[i].hp << "  |" << endl;
+        }
+    }
+}
+
 int main() {
     pokemon p[MAXp];
     int choice;
-    string name, type;
-    int level, hp;
+    string name, type, s;
+    int level, hp, by, m, n;
     do {
         cout << R"(
 ==================================
@@ -129,6 +191,8 @@ int main() {
 4. Load collection
 5. Delete pokemon
 6. Edit pokemon
+7. Sort pokemon
+8. Search pokemon
 0. Exit
 ==================================
 )";
@@ -157,16 +221,24 @@ int main() {
             loadCollection(p);
             break;
         case 5:
-            int n;
             cout << "Pokemon to delete\n -: ";
             cin >> n;
             deletePokemon(n, p);
             break;
         case 6:
-            int m;
             cout << "Pokemon to edit\n -: ";
             cin >> m;
             editPokemon(m, p);
+            break;
+        case 7:
+            cout << "Sort by\n1. Name\n2. Type\n3. Level\n4. HP\n -: ";
+            cin >> by;
+            sortpokemonby(p, by);
+            break;
+        case 8:
+            cout << "Pokemon to search by name\n -: ";
+            cin >> s;
+            searchpokemon(p, s);
             break;
         case 0:
             saveCollection(p);
