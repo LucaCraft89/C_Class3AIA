@@ -2,8 +2,12 @@
 // Created by lucac on 2024/02/19.
 //
 #include <iostream>
+#include <windows.h>
 
 using namespace std;
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
 
 const int RIGHE = 6;
 const int COLONNE = 7;
@@ -16,9 +20,23 @@ void printGrid(char grid[RIGHE][COLONNE])
     for (int i = 0; i < RIGHE; i++)
     {
         for (int j = 0; j < COLONNE; j++)
-        {
+        {   
+            
+            if (grid[i][j] == PLAYER1)
+            {
+                SetConsoleTextAttribute(hConsole, FOREGROUND_RED | BACKGROUND_RED);
+            }
+            else if (grid[i][j] == PLAYER2)
+            {
+                SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | BACKGROUND_RED | BACKGROUND_GREEN);
+            }
+            else
+            {
+                SetConsoleTextAttribute(hConsole, 0);
+            }
             cout << "| " << grid[i][j] << " ";
         }
+        SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | BACKGROUND_BLUE);
         cout << "|" << endl;
     }
     cout << "--1---2---3---4---5---6---7--"
@@ -179,7 +197,7 @@ int input(char grid[RIGHE][COLONNE]){
 }
 
 int main()
-{
+{   
     char grid[RIGHE][COLONNE];
     int win=0;
     initializeGrid(grid);
