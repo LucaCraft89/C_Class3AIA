@@ -1,3 +1,19 @@
+#!/bin/bash
+
+# Define the path to the old Docker volumes
+old_volumes_path="/mnt/olddisk/var/lib/docker/volumes"
+
+# Find the WordPress and MySQL volumes
+old_wordpress_volume=$(find $old_volumes_path -name '*_wordpress*' -type d)
+old_mysql_volume=$(find $old_volumes_path -name '*_db*' -type d)
+
+# Check if the WordPress and MySQL volumes were found
+if [ -z "$old_wordpress_volume" ] || [ -z "$old_mysql_volume" ]; then
+  echo "Could not find the WordPress or MySQL volume."
+  exit 1
+fi
+
+
 # Define the paths to the old and new WordPress and MySQL data
 old_wordpress_path="$old_wordpress_volume/_data"
 old_mysql_path="$old_mysql_volume/_data"
