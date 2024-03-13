@@ -8,7 +8,6 @@ using namespace std;
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-
 const int RIGHE = 6;
 const int COLONNE = 7;
 const char EMPTY = '.';
@@ -17,6 +16,7 @@ const char PLAYER2 = 'O';
 
 void printGrid(char grid[RIGHE][COLONNE])
 {
+    system("cls");
     for (int i = 0; i < RIGHE; i++)
     {
         for (int j = 0; j < COLONNE; j++)
@@ -32,7 +32,7 @@ void printGrid(char grid[RIGHE][COLONNE])
             }
             else
             {
-                SetConsoleTextAttribute(hConsole, 0);
+                SetConsoleTextAttribute(hConsole, 7);
             }
             cout << "| " << grid[i][j] << " ";
         }
@@ -41,6 +41,7 @@ void printGrid(char grid[RIGHE][COLONNE])
     }
     cout << "--1---2---3---4---5---6---7--"
          << "\n\n";
+         SetConsoleTextAttribute(hConsole, 7);
 }
 
 void initializeGrid(char grid[RIGHE][COLONNE])
